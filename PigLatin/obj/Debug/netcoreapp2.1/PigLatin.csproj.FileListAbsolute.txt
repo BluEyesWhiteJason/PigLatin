@@ -1,0 +1,11 @@
+/Users/jason/Projects/PigLatin/PigLatin/bin/Debug/netcoreapp2.1/PigLatin.deps.json
+/Users/jason/Projects/PigLatin/PigLatin/bin/Debug/netcoreapp2.1/PigLatin.runtimeconfig.json
+/Users/jason/Projects/PigLatin/PigLatin/bin/Debug/netcoreapp2.1/PigLatin.runtimeconfig.dev.json
+/Users/jason/Projects/PigLatin/PigLatin/bin/Debug/netcoreapp2.1/PigLatin.dll
+/Users/jason/Projects/PigLatin/PigLatin/bin/Debug/netcoreapp2.1/PigLatin.pdb
+/Users/jason/Projects/PigLatin/PigLatin/obj/Debug/netcoreapp2.1/PigLatin.csprojAssemblyReference.cache
+/Users/jason/Projects/PigLatin/PigLatin/obj/Debug/netcoreapp2.1/PigLatin.csproj.CoreCompileInputs.cache
+/Users/jason/Projects/PigLatin/PigLatin/obj/Debug/netcoreapp2.1/PigLatin.AssemblyInfoInputs.cache
+/Users/jason/Projects/PigLatin/PigLatin/obj/Debug/netcoreapp2.1/PigLatin.AssemblyInfo.cs
+/Users/jason/Projects/PigLatin/PigLatin/obj/Debug/netcoreapp2.1/PigLatin.dll
+/Users/jason/Projects/PigLatin/PigLatin/obj/Debug/netcoreapp2.1/PigLatin.pdb
