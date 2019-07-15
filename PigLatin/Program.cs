@@ -15,46 +15,75 @@ namespace PigLatin
 
                 string lilWord = word.ToLower();
 
-                //Console.WriteLine(lilWord);
+                //skip if contains numbers
+                bool skip = false;
 
-                string vowels = "aeiou";
-                string pigWord;
-
-                // If word begins with vowel, add -way
-                if (vowels.Contains(lilWord[0]))
+                foreach(char letter in word)
                 {
-                    pigWord = string.Concat(word, "way");
-                }
-
-                // If begins with consonant, split at first vowel
-                else
-                {
-                    pigWord = lilWord;
-                    for (int i = 1; i < word.Length; i++)
+                    if (containsNum(letter))
                     {
-                        if (vowels.Contains(lilWord[i]))
-                        {
-                            char c = lilWord[i];
-                            string[] parts = lilWord.Split(lilWord[i]);
-                            pigWord = string.Concat(c, parts[1], parts[0], "ay");
-                            break;
-                        }
+                        skip = true;
+                        break;
                     }
                 }
-                Console.WriteLine(pigWord);
-                Console.WriteLine("Continue? y/n : ");
-                string contEnter = Console.ReadLine();
+                string vowels = "aeiou";
 
-                // Check if they want to continue
-                if (contEnter == "y" || contEnter == "Y")
+                if (skip == false)
                 {
-                    cont = true;
+                    // If word begins with vowel, add -way
+                    if (IsVowel(lilWord[0]))
+                    {
+                        Console.WriteLine(word + "way");
+                    }
+
+                    // If begins with consonant, split at first vowel
+                    else
+                    {
+                        for (int i = 1; i < word.Length; i++)
+                        {
+                            if (vowels.Contains(lilWord[i]))
+                            {
+                                string prefix = word.Substring(i);
+                                string postfix = word.Substring(0, i) + "ay";
+
+                                Console.WriteLine(prefix + postfix);
+                                break;
+                            }
+                        }
+                    }
+                    //Console.WriteLine(pigWord);
+                    Console.WriteLine("Continue? y/n : ");
+                    string contEnter = Console.ReadLine();
+
+                    // Check if they want to continue
+                    if (contEnter == "y" || contEnter == "Y")
+                    {
+                        cont = true;
+                    }
+                    else if (contEnter == "n" || contEnter == "N")
+                    {
+                        cont = false;
+                    }
                 }
-                else if (contEnter == "n" || contEnter == "N")
+                else
                 {
-                    cont = false;
+                    Console.WriteLine("Your input contains a forbidden character");
                 }
             }
+        }
+
+        public static bool IsVowel(Char c)
+        {
+            string vowels = "aeiou";
+
+            bool output = vowels.Contains(c);
+            return output;
+        }
+
+        public static bool containsNum(Char c)
+        {
+            bool output = char.IsNumber(c);
+            return output;
         }
     }
 }
