@@ -13,61 +13,69 @@ namespace PigLatin
 
                 string word = Console.ReadLine();
 
-                string lilWord = word.ToLower();
-
-                //skip if contains numbers
-                bool skip = false;
-
-                foreach(char letter in word)
+                if (word != "")
                 {
-                    if (containsNum(letter))
-                    {
-                        skip = true;
-                        break;
-                    }
-                }
-                string vowels = "aeiou";
 
-                if (skip == false)
-                {
-                    // If word begins with vowel, add -way
-                    if (IsVowel(lilWord[0]))
-                    {
-                        Console.WriteLine(word + "way");
-                    }
+                    string lilWord = word.ToLower();
 
-                    // If begins with consonant, split at first vowel
-                    else
+                    //skip if contains numbers
+                    bool skip = false;
+
+                    foreach (char letter in word)
                     {
-                        for (int i = 1; i < word.Length; i++)
+                        if (ContainsNum(letter))
                         {
-                            if (vowels.Contains(lilWord[i]))
-                            {
-                                string prefix = word.Substring(i);
-                                string postfix = word.Substring(0, i) + "ay";
-
-                                Console.WriteLine(prefix + postfix);
-                                break;
-                            }
+                            skip = true;
+                            break;
                         }
                     }
-                    //Console.WriteLine(pigWord);
-                    Console.WriteLine("Continue? y/n : ");
-                    string contEnter = Console.ReadLine();
+                    string vowels = "aeiou";
 
-                    // Check if they want to continue
-                    if (contEnter == "y" || contEnter == "Y")
+                    if (skip == false)
                     {
-                        cont = true;
+                        // If word begins with vowel, add -way
+                        if (IsVowel(lilWord[0]))
+                        {
+                            Console.WriteLine(word + "way");
+                        }
+
+                        // If begins with consonant, split at first vowel
+                        else
+                        {
+                            for (int i = 1; i < word.Length; i++)
+                            {
+                                if (vowels.Contains(lilWord[i]))
+                                {
+                                    string prefix = word.Substring(i);
+                                    string postfix = word.Substring(0, i) + "ay";
+
+                                    Console.WriteLine(prefix + postfix);
+                                    break;
+                                }
+                            }
+                        }
+                        //Console.WriteLine(pigWord);
+                        Console.WriteLine("Continue? y/n : ");
+                        string contEnter = Console.ReadLine();
+
+                        // Check if they want to continue
+                        if (contEnter == "y" || contEnter == "Y")
+                        {
+                            cont = true;
+                        }
+                        else if (contEnter == "n" || contEnter == "N")
+                        {
+                            cont = false;
+                        }
                     }
-                    else if (contEnter == "n" || contEnter == "N")
+                    else
                     {
-                        cont = false;
+                        Console.WriteLine("Your input contains a forbidden character");
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Your input contains a forbidden character");
+                    Console.WriteLine("Your input was empty, please try again");
                 }
             }
         }
@@ -80,7 +88,7 @@ namespace PigLatin
             return output;
         }
 
-        public static bool containsNum(Char c)
+        public static bool ContainsNum(Char c)
         {
             bool output = char.IsNumber(c);
             return output;
